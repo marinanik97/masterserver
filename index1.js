@@ -36,13 +36,14 @@ app.post("/login", (req, res) => {
     console.log(result);
     if (err) throw err;
     if (result && result.length) {
-      jwt.sign({ exp: 7, data: result[0].email }, "marina", function (
-        err,
-        token
-      ) {
-        if (err) res.send(err);
-        res.send({ token: token });
-      });
+      jwt.sign(
+        { exp: 7, data: result[0].email },
+        "marina",
+        function (err, token) {
+          if (err) res.send(err);
+          res.send({ token: token });
+        }
+      );
     } else {
       res.send({ err: "Please sign up." });
     }
@@ -114,7 +115,6 @@ app.get("/kartoni/:id", (req, res) => {
 });
 
 app.post("/izmenakarona/:id", (req, res) => {
-
   let sql = `UPDATE karton SET ime='${req.body.ime}', prezime='${req.body.prezime}', 
             jmbg=${req.body.jmbg}, pol='${req.body.pol}', datumrodjenja='${req.body.datumrodjenja}', telefon='${req.body.telefon}', email='${req.body.email}' WHERE kartonid=${req.params.id}`;
   let query = db.query(sql, (err, result) => {
@@ -192,7 +192,6 @@ app.get("/brisanjerezultata/:id", (req, res) => {
 });
 
 app.post("/izmenarezultata/:id", (req, res) => {
-
   let sql = `UPDATE rezultat SET posiljalac='${req.body.posiljalac}', datumupisa='${req.body.datumupisa}', uzorakid=${req.body.uzorakid} WHERE rezultatid=${req.params.id}`;
   let query = db.query(sql, (err, result) => {
     if (err) throw err;
@@ -257,7 +256,8 @@ app.get("/tipovi", (req, res) => {
 });
 
 app.get("/izvestaji", (req, res) => {
-  let sql = "SELECT i.datumstampanja, i.izvestajid, i.napomena, d.ime as doktorIme, d.prezime as doktorPrezime, d.specijalnost, k.ime as kartonIme, k.prezime as kartonPrezime FROM izvestaj i INNER JOIN doktor d ON i.doktorid = d.doktorid INNER JOIN karton k ON k.kartonid = i.kartonid  ";
+  let sql =
+    "SELECT i.datumstampanja, i.izvestajid, i.napomena, d.ime as doktorIme, d.prezime as doktorPrezime, d.specijalnost, k.ime as kartonIme, k.prezime as kartonPrezime FROM izvestaj i INNER JOIN doktor d ON i.doktorid = d.doktorid INNER JOIN karton k ON k.kartonid = i.kartonid  ";
   let query = db.query(sql, (err, results) => {
     if (err) throw err;
     res.send(results);
@@ -273,7 +273,6 @@ app.get("/delete_izvestaj/:id", (req, res) => {
 });
 
 app.post("/dodajizvestaj", (req, res) => {
-  
   let izvestaj = {
     kartonid: req.body.kartonid,
     datumstampanja: req.body.datumstampanja,
@@ -287,11 +286,10 @@ app.post("/dodajizvestaj", (req, res) => {
     if (err) throw err;
     res.send("Izvestaj je kreiran, kao i stavke");
 
-
     let stavke = { stavke: req.body.stavke };
-    let newArray = req.body.stavke.map((stavka, index) =>{
-      return {...stavka, izvestajid: result.insertId, rb: index+1}
-    })
+    let newArray = req.body.stavke.map((stavka, index) => {
+      return { ...stavka, izvestajid: result.insertId, rb: index + 1 };
+    });
 
     for (i = 0; i < newArray.length; i++) {
       let sql = "INSERT INTO stavkaizvestaja SET ?";
@@ -301,12 +299,7 @@ app.post("/dodajizvestaj", (req, res) => {
         console.log(result);
       });
     }
-
   });
-
-
-
-
 });
 
 //connection();

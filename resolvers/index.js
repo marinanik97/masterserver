@@ -1,28 +1,25 @@
-const KartonResolver = require('./Karton');
-const DoctorResolver = require('./Doctor');
-const ReportResolver = require('./Report');
-const RezultatResolver = require('./Rezultat');
-const TipUzorkaResolver = require('./TipUzorka');
-const ParametarResolver = require('./Parametar');
-const UzorakResolver = require('./Uzorak');
-const IzvestajResolver = require('./Izvestaj');
-const StavkaIzvestajResolver = require('./StavkaIzvestaj');
+const MedicalRecordResolver = require("./MedicalRecord");
+const DoctorResolver = require("./Doctor");
+const ReportResolver = require("./Report");
+const ResultResolver = require("./Result");
+const ParameterResolver = require("./Parameter");
+const SampleTypeResolver = require("./SampleType");
+const ReportItemResolver = require("./ReportItem");
 
 const GraphQLDateTime = require("graphql-iso-date");
 
 const customScalarResolver = {
-    Date: GraphQLDateTime
+  Date: GraphQLDateTime,
 };
 
 module.exports = [
-    //customScalarResolver,
-    KartonResolver,
-    DoctorResolver,
-    ReportResolver,
-    RezultatResolver,
-    TipUzorkaResolver,
-    ParametarResolver,
-    UzorakResolver,
-    IzvestajResolver,
-    StavkaIzvestajResolver
-]
+  //customScalarResolver,
+  MedicalRecordResolver,
+  DoctorResolver,
+  ReportResolver,
+  ResultResolver,
+  SampleTypeResolver,
+  ParameterResolver,
+  SampleResolver,
+  ReportItemResolver,
+];

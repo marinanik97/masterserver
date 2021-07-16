@@ -1,14 +1,13 @@
 const { gql } = require("apollo-server-express");
 
-const KartonType = require("./Karton");
+const MedicalRecordType = require("./MedicalRecord");
 const DoctorType = require("./Doctor");
 const ReportType = require("./Report");
-const RezultatType = require("./Rezultat");
-const TipUzorka = require("./TipUzorka");
-const ParametarType = require("./Parametar");
-const UzorakType = require("./Uzorak");
-const IzvestajType = require("./Izvestaj");
-const StavkaIzvestajType = require("./StavkaIzvestaj");
+const ResultType = require("./Result");
+const SampleType = require("./SampleType");
+const ParameterType = require("./Parameter");
+const SampleType = require("./Sample");
+const ReportItemType = require("./ReportItem");
 
 const RootType = gql`
   scalar Date
@@ -22,13 +21,12 @@ const RootType = gql`
 
 module.exports = [
   RootType,
-  KartonType,
+  MedicalRecordType,
   ReportType,
   DoctorType,
-  RezultatType,
-  TipUzorka,
-  ParametarType,
-  UzorakType,
-  IzvestajType,
-  StavkaIzvestajType,
+  ResultType,
+  SampleType,
+  ParameterType,
+  SampleType,
+  ReportItemType,
 ];

@@ -1,14 +1,12 @@
-
-const Parametar = require('../database/models/parametar');
-
+const Parameter = require("../database/models/parameter");
 
 module.exports = {
-    Query: {
-        getParametars: async () => {
-            return await Parametar.find();
-        },
-        getParametarByID: async (_, {id}) => {
-            return await Parametar.findById(id);
-        }
-    }
-}
+  Query: {
+    getParameters: async () => {
+      return await Parameter.find();
+    },
+    getParameterByID: async (_, { id }) => {
+      return await Parameter.findById(id);
+    },
+  },
+};

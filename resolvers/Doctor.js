@@ -1,14 +1,12 @@
-
-const Doktor = require('../database/models/doktor');
-
+const Doctor = require("../database/models/doctor");
 
 module.exports = {
-    Query: {
-        getDoctors: async () => {
-            return await Doktor.find();
-        },
-        getDoctorByID: async (_, {id}) => {
-            return await Doktor.findById(id);
-        }
-    }
-}
+  Query: {
+    getDoctors: async () => {
+      return await Doctor.find();
+    },
+    getDoctorByID: async (_, { id }) => {
+      return await Doctor.findById(id);
+    },
+  },
+};

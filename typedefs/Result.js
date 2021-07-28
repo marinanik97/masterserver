@@ -5,7 +5,7 @@ module.exports = gql`
     id: ID
     sender: String
     dateofentry: Date
-    sample: Uzorak
+    sample: Sample
   }
 
   input newResultInput {

@@ -51,7 +51,7 @@ app.post("/login", (req, res) => {
 
 module.exports.connection = async () =>{
     try{
-        await mongoose.connect('mongodb://localhost:27017/fpis', {useNewUrlParser: true, useUnifiedTopology: true})
+        await mongoose.connect('mongodb://localhost:27017/hospital', {useNewUrlParser: true, useUnifiedTopology: true})
         mongoose.set('debug', true);
         console.log('connected')
     }catch (e) {

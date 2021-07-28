@@ -4,7 +4,7 @@ const MedicalRecordType = require("./MedicalRecord");
 const DoctorType = require("./Doctor");
 const ReportType = require("./Report");
 const ResultType = require("./Result");
-const SampleType = require("./SampleType");
+const SampleTypeType = require("./SampleType");
 const ParameterType = require("./Parameter");
 const SampleType = require("./Sample");
 const ReportItemType = require("./ReportItem");
@@ -25,7 +25,7 @@ module.exports = [
   ReportType,
   DoctorType,
   ResultType,
-  SampleType,
+  SampleTypeType,
   ParameterType,
   SampleType,
   ReportItemType,

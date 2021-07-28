@@ -3,7 +3,7 @@ const DoctorResolver = require("./Doctor");
 const ReportResolver = require("./Report");
 const ResultResolver = require("./Result");
 const ParameterResolver = require("./Parameter");
-const SampleTypeResolver = require("./SampleType");
+const SampleResolver = require("./Sample");
 const ReportItemResolver = require("./ReportItem");
 
 const GraphQLDateTime = require("graphql-iso-date");
@@ -18,7 +18,6 @@ module.exports = [
   DoctorResolver,
   ReportResolver,
   ResultResolver,
-  SampleTypeResolver,
   ParameterResolver,
   SampleResolver,
   ReportItemResolver,

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reportSchema = new Schema({
-  dateOfPrinting: { type: Date, required: true },
+  dateofprinting: { type: Date, required: true },
   note: String,
   doctor: { type: mongoose.Types.ObjectId, required: true, ref: "Doctor" },
   medicalrecord: {

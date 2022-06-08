@@ -7,7 +7,7 @@ module.exports = gql`
     datumupisa: Date
     uzorak: Uzorak
   }
-#proveriti za uzorak
+  #proveriti za uzorak
   input newRezultatInput {
     posiljalac: String
     datumupisa: Date
@@ -28,7 +28,7 @@ module.exports = gql`
 
   extend type Mutation {
     newResult(input: newRezultatInput): Rezultat!
-    deleteResult(id:ID!): Rezultat!
+    deleteResult(id: ID!): Rezultat!
     editResult(input: editRezultatInput): Rezultat!
   }
 `;

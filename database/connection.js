@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// const { connection } = require("../");
 const UserRoute = require("../routes/UserRoute");
 const mysql = require("mysql");
 const { response } = require("express");
@@ -36,25 +35,29 @@ app.post("/login", (req, res) => {
     console.log(result);
     if (err) throw err;
     if (result && result.length) {
-      jwt.sign({ exp: 7, data: result[0].email }, "marina", function (
-        err,
-        token
-      ) {
-        if (err) res.send(err);
-        res.send({ token: token });
-      });
+      jwt.sign(
+        { exp: 7, data: result[0].email },
+        "marina",
+        function (err, token) {
+          if (err) res.send(err);
+          res.send({ token: token });
+        }
+      );
     } else {
       res.send({ err: "Please sign up." });
     }
   });
 });
 
-module.exports.connection = async () =>{
-    try{
-        await mongoose.connect('mongodb://localhost:27017/fpis', {useNewUrlParser: true, useUnifiedTopology: true})
-        mongoose.set('debug', true);
-        console.log('connected')
-    }catch (e) {
-        throw e;
-    }
+module.exports.connection = async () => {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/fpis", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    mongoose.set("debug", true);
+    console.log("connected");
+  } catch (e) {
+    throw e;
+  }
 };

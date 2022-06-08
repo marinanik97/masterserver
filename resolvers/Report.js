@@ -1,9 +1,3 @@
-
-
-
-
 module.exports = {
-    Query: {
-        
-    }
-}
+  Query: {},
+};
